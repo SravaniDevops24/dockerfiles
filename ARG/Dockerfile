@@ -7,7 +7,7 @@
 
 # ARG version
 # FROM almalinux:${version:-8}
-# #RUN cat /etc/*release
+# RUN cat /etc/*release
 # ARG NAME
 # ARG COURSE
 # RUN echo "name is:  ${NAME}, COURSE is: ${COURSE}"
@@ -16,17 +16,31 @@
 #### we can give directly
 # ARG version
 # FROM almalinux:${version:-8}
-# #RUN cat /etc/*release
+# RUN cat /etc/*release
 # ARG NAME=sravani
 # ARG COURSE=devops
 # RUN echo "name is:  ${NAME}, COURSE is: ${COURSE}"
 # CMD ["sleep", "100"]
 
+#### ENV vs ARG
+# ARG version
+# FROM almalinux:${version:-8}
+# RUN cat /etc/*release
+# ARG NAME=sravani
+# ARG COURSE=devops
+# ENV DURATION=120hrs
+# RUN echo "name is:  ${NAME}, COURSE is: ${COURSE}, duration is: ${DURATION}"
+# CMD ["sleep", "100"]
+
+#### How to access arg inside container in run time 
+
 ARG version
 FROM almalinux:${version:-8}
-#RUN cat /etc/*release
+RUN cat /etc/*release
 ARG NAME=sravani
 ARG COURSE=devops
-ENV DURATION=120hrs
+ARG DURATION=120hrs
+ENV DURATION
 RUN echo "name is:  ${NAME}, COURSE is: ${COURSE}, duration is: ${DURATION}"
 CMD ["sleep", "100"]
+
