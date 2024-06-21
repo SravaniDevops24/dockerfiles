@@ -40,7 +40,7 @@ RUN cat /etc/*release
 ARG NAME=sravani
 ARG COURSE=devops
 ARG DURATION=120hrs
-ENV DURATION
+ENV DURATION=${DURATION}
 RUN echo "name is:  ${NAME}, COURSE is: ${COURSE}, duration is: ${DURATION}"
 CMD ["sleep", "100"]
 
