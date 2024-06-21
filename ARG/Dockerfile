@@ -36,7 +36,7 @@
 
 ARG version
 FROM almalinux:${version:-8}
-RUN cat /etc/*release
+#RUN cat /etc/*release
 ARG NAME=sravani
 ARG COURSE=devops
 ARG DURATION=120hrs
